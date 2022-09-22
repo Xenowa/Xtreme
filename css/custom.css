@@ -1,0 +1,72 @@
+/* 
+======
+Colors
+======
+ */
+:root {
+  --blue: #00469c;
+  --blue-light: #0557b1;
+  --yellow: #f4973b;
+  --white: #ffffff;
+  --black: #000000;
+}
+
+body {
+  text-align: center;
+}
+
+nav {
+  transition: background 300ms ease-in-out;
+}
+
+section {
+  padding: 3rem 0;
+}
+
+/* 
+======
+Extras
+======
+ */
+.heading__span {
+  color: var(--yellow);
+}
+
+.colored__section {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+/* 
+======
+Navbar
+======
+ */
+.nav__background {
+  background: var(--blue-light);
+}
+
+.nav__scrolled {
+  background: var(--blue);
+}
+
+.nav-link:hover {
+  color: var(--yellow);
+}
+
+.active {
+  color: var(--yellow) !important;
+}
+
+/* 
+========================
+Responsive Media Queries
+========================
+ */
+@media screen and (max-width: 991px) {
+  .nav__background .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
