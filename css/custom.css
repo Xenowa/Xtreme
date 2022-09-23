@@ -1,18 +1,13 @@
-/* 
-======
-Colors
-======
- */
-:root {
-  --blue: #00469c;
-  --blue-light: #0557b1;
-  --yellow: #f4973b;
-  --white: #ffffff;
-  --black: #000000;
-}
+@import "partials/colors.css";
 
+/* 
+==============
+Custom Tag CSS
+==============
+ */
 body {
   text-align: center;
+  font-family: "chakra-petch";
 }
 
 nav {
@@ -24,32 +19,10 @@ section {
 }
 
 /* 
-======
-Extras
-======
+===========
+Nav Section
+===========
  */
-.heading__span {
-  color: var(--yellow);
-}
-
-.colored__section {
-  background-color: var(--blue);
-  color: var(--white);
-}
-
-/* 
-======
-Navbar
-======
- */
-.nav__background {
-  background: var(--blue-light);
-}
-
-.nav__scrolled {
-  background: var(--blue);
-}
-
 .nav-link:hover {
   color: var(--yellow);
 }
@@ -59,14 +32,41 @@ Navbar
 }
 
 /* 
+=============
+About Section
+=============
+ */
+.card {
+  transition: scale 300ms ease-in-out;
+}
+
+.card:hover {
+  scale: 1.05;
+}
+
+.btn__custom {
+  background-color: var(--blue);
+  color: var(--white) !important;
+  transition: background 300ms ease-in-out;
+}
+
+.btn__custom:hover {
+  background-color: var(--yellow) !important;
+}
+
+/* 
 ========================
 Responsive Media Queries
 ========================
  */
 @media screen and (max-width: 991px) {
-  .nav__background .container {
+  nav .container {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  nav .navbar-brand {
+    margin-bottom: 0.5rem;
   }
 }

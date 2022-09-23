@@ -14,9 +14,11 @@ const activeLink = (id) => {
 window.addEventListener("scroll", () => {
     // Navbar
     if (document.body.scrollTop >= 200 || document.documentElement.scrollTop >= 200) {
-        navBar.classList.add("nav__scrolled")
+        navBar.classList.add("background__primary")
+        navBar.classList.remove("background__primary-light")
     } else {
-        navBar.classList.remove("nav__scrolled")
+        navBar.classList.add("background__primary-light")
+        navBar.classList.remove("background__primary")
     }
 
     // nav Links
