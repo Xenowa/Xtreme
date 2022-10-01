@@ -36,6 +36,12 @@ Nav Section
 About Section
 =============
  */
+
+.custom__container-paragraph {
+  word-break: break-all;
+  text-align: justify;
+}
+
 .card {
   transition: scale 300ms ease-in-out;
 }

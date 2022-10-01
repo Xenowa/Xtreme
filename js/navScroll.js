@@ -23,9 +23,8 @@ window.addEventListener("scroll", () => {
 
     // nav Links
     sections.forEach((section) => {
-        let top = window.scrollY;
-        let offset = section.offsetTop;
-        let height = section.offsetHeight;
+        let top = window.scrollY
+        let offset = section.offsetTop
         let id = section.getAttribute("id")
 
         if (top >= offset - 10) {
