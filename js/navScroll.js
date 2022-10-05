@@ -27,7 +27,7 @@ window.addEventListener("scroll", () => {
         let offset = section.offsetTop
         let id = section.getAttribute("id")
 
-        if (top >= offset - 10) {
+        if (top >= offset - 100) {
             activeLink(id)
         }
     })
