@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
 /* 
 ======
@@ -54,7 +54,7 @@ Custom Tag CSS
  */
 body {
   text-align: center;
-  font-family: "chakra-petch";
+  font-family: "Montserrat", sans-serif;
 }
 
 nav {
