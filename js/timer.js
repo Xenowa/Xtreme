@@ -16,6 +16,8 @@ const resume5 = new Date("Oct 23, 2022 02:00:00").getTime()
 const winnerAnnounce = new Date("Oct 23, 2022 06:00:00").getTime()
 const conclude = new Date("Oct 23, 2022 07:00:00").getTime()
 
+const eventEnd = new Date("Oct 23, 2022 05:30:00").getTime()
+
 const timeArray = [
     registrations,
     commence,
@@ -34,28 +36,65 @@ const timeArray = [
 ]
 
 const timelineItems = document.querySelectorAll(".timeline-content h4")
+const counter = document.querySelector(".counter")
 
 let timer = setInterval(function () {
     const now = new Date().getTime()
-    let itemIndex = 0
 
+    // ===============
+    // CountDown Timer
+    // ===============
+    // gap for competition
+    const distance = eventEnd - now;
+
+    // Time calculations for days, hours, minutes and seconds
+    const hours = Math.floor((distance / (1000 * 60 * 60)));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Displaying the countdown timer Once commenced
+    if (now >= commence && now < eventEnd) {
+        counter.classList.remove("d-none")
+        // Setting up the values to the counter
+        counter.children[0].children[0].children[1].children[0].textContent = hours + ":"
+        counter.children[0].children[0].children[1].children[1].textContent = minutes + ":"
+        counter.children[0].children[0].children[1].children[2].textContent = seconds
+    } else if (now >= eventEnd) {
+        counter.classList.remove("d-none")
+        // Resetting Counter values to be 0
+        counter.children[0].children[0].children[1].children[0].textContent = "00:"
+        counter.children[0].children[0].children[1].children[1].textContent = "00:"
+        counter.children[0].children[0].children[1].children[2].textContent = "00"
+    }
+
+    // ==============
+    // Timeline Items
+    // ==============
+    // Go through each event time
     timeArray.forEach((time, item) => {
         if (now >= time) {
-            timelineItems[item].style.textDecoration = "line-through"
-            itemIndex = item
+            // Change color of currently occuring event
+            timelineItems[item].style.color = "var(--yellow)"
+
+            // Striking through the previous event if any
+            if (now >= commence && item !== 0) {
+                timelineItems[item - 1].style.color = "var(--blue)"
+                timelineItems[item - 1].style.textDecoration = "line-through"
+            }
         }
     })
 
-    if (now > registrations && now < conclude) {
-        timelineItems[itemIndex + 1].style.color = "var(--yellow)"
-    }
-
+    // Stoping the timer at event end
     if (now >= conclude) {
         clearInterval(timer);
+        timelineItems[timelineItems.length - 1].style.color = "var(--blue)"
+        timelineItems[timelineItems.length - 1].style.textDecoration = "line-through"
 
+        // Displaying the top teams section at end of event
         const topTeams = document.getElementById("topTeams")
 
         topTeams.children[1].classList.add("invisible")
         topTeams.children[2].classList.remove("invisible")
+        counter.classList.add("d-none")
     }
 }, 1000)
