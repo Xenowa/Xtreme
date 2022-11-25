@@ -126,3 +126,16 @@ Responsive Media Queries
     margin-bottom: 0.5rem;
   }
 }
+
+@media screen and (max-width: 767px) {
+  #topTeams .team__3 {
+    order: 3;
+  }
+
+  #topTeams .team__2 {
+    order: 2;
+  }
+  #topTeams .team__1 {
+    order: 1;
+  }
+}
